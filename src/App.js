@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "./Components/SearchBar";
 import PokemonCard from "./Components/PokemonCard";
+import Header from "./Components/Header";
 
 import "./Styles/app.css";
 
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <SearchBar fetchPokemon={fetchPokemon} returnedCards={returnedCards} />
       {matchesFound ? (
         <PokemonCard returnedCards={returnedCards} />

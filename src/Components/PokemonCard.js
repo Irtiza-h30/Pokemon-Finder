@@ -13,7 +13,7 @@ export default function PokemonCard(props) {
               hoverable
               style={{ width: 240 }}
               cover={<img alt="example" src={card.imageUrlHiRes} />}
-              bodyStyle={{ backgroundColor: "rgb(152,152,152)", border: 10 }}
+              bodyStyle={{ backgroundColor: "rgb(254, 225, 175)", border: 10 }}
             >
               <Meta title={card.name} description={card.series} />
             </Card>

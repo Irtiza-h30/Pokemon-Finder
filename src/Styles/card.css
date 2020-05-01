@@ -3,11 +3,11 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin: 10px;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 4px;
   width: 100%;
   min-height: 700px;
   padding: 4px;
@@ -19,11 +19,11 @@
   transition: transform 0.2s;
   transition: transform 0.2s, -webkit-transform 0.2s;
   width: 240;
-  margin: 10px;
+  margin: 6;
 }
 
 .card:hover {
   -webkit-transform: scale(1.05);
-  transform: scale(1.06);
+          transform: scale(1.05);
 }
 /*# sourceMappingURL=card.css.map */
