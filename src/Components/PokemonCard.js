@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "antd";
-import "../Styles/card.css";
+import "../Styles/card.scss";
 const { Meta } = Card;
 
 export default function PokemonCard(props) {
