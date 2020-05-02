@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "../Components/SearchBar";
 import PokemonCard from "../Components/PokemonCard";
 import Header from "../Components/Header";
-
-import "../Styles/app.scss";
+import { useHistory } from "react-router-dom";
+import "../Styles/app.css";
 
 function Home() {
+  const history = useHistory();
+
   useEffect(() => {
     fetchPokemon("");
   }, []);
@@ -20,18 +22,24 @@ function Home() {
     setCardValue(cards.cards);
   };
 
+  const handleOpen = (card) => {
+    history.push({
+      pathname: "/Pokemon",
+      state: { card },
+    });
+  };
+
   return (
     <div className="Home">
       <Header />
       <SearchBar fetchPokemon={fetchPokemon} returnedCards={returnedCards} />
       {returnedCards.length > 0 ? (
-        <PokemonCard returnedCards={returnedCards} />
+        <PokemonCard returnedCards={returnedCards} handleOpen={handleOpen} />
       ) : (
         <div id="noMatches">
-          <p>Loading....Check Pokémon spelling before submitting</p>
+          <p>No matches found...check Pokémon spelling</p>
         </div>
       )}
-      {}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "antd";
-import "../Styles/card.scss";
+import "../Styles/card.css";
 const { Meta } = Card;
 
 export default function PokemonCard(props) {
@@ -14,6 +14,7 @@ export default function PokemonCard(props) {
               style={{ width: 240 }}
               cover={<img alt="example" src={card.imageUrlHiRes} />}
               bodyStyle={{ backgroundColor: "rgb(254, 225, 175)", border: 10 }}
+              onClick={() => props.handleOpen({ card })}
             >
               <Meta title={card.name} description={card.series} />
             </Card>
