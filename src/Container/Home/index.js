@@ -12,7 +12,7 @@ const Home = () => {
   const [search, setSearch] = useState(localStorage.getItem("search"));
 
   useEffect(() => {
-    fetchPokemon(search);
+    fetchPokemon(search !== null ? search : "");
     localStorage.setItem("search", search);
   }, [search]);
 
