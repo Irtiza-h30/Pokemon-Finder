@@ -1,12 +1,16 @@
 .Container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   padding: 24px;
   max-width: 1200px;
+  max-height: 500px;
   margin: auto;
   .Card {
-    width: 500px;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
     flex: 1;
     margin-right: 15px;
   }

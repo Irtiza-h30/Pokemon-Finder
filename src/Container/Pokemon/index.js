@@ -9,11 +9,9 @@ import styles from "./index.module.scss";
 const Pokemon = ({ location }) => {
   const history = useHistory();
 
-  const search = location.state.search;
   const goBack = () => {
     history.push({
       pathname: "/",
-      state: { search },
     });
   };
   return (
