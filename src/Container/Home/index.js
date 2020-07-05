@@ -8,19 +8,16 @@ import styles from "./index.module.scss";
 
 const Home = ({ location }) => {
   const history = useHistory();
-
   const [returnedCards, setReturnedCards] = useState([]);
-  const [search, setSearch] = useState(location ? location.state.search : "");
 
   useEffect(() => {
-    fetchPokemon(search);
-  }, [search]);
+    fetchPokemon("");
+  }, []);
 
   const fetchPokemon = async (value) => {
     const data = await fetch(
       `https://api.pokemontcg.io/v1/cards?name=${value}`
     );
-    setSearch(value);
     const cards = await data.json();
     setReturnedCards(cards.cards);
   };
@@ -28,18 +25,14 @@ const Home = ({ location }) => {
   const handleOpen = (card) => {
     history.push({
       pathname: "/pokemon",
-      state: { card, search },
+      state: { card },
     });
   };
 
   return (
     <div>
       <Header />
-      <SearchBar
-        fetchPokemon={fetchPokemon}
-        returnedCards={returnedCards}
-        initialVal={search}
-      />
+      <SearchBar fetchPokemon={fetchPokemon} returnedCards={returnedCards} />
       {returnedCards.length > 0 ? (
         <PokemonCard returnedCards={returnedCards} handleOpen={handleOpen} />
       ) : (

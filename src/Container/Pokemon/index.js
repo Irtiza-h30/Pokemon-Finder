@@ -7,12 +7,9 @@ import { Card, Button } from "antd";
 import styles from "./index.module.scss";
 
 const Pokemon = ({ location }) => {
-  console.log(location);
-
   const history = useHistory();
 
   const search = location.state.search;
-  console.log(search);
   const goBack = () => {
     history.push({
       pathname: "/",
