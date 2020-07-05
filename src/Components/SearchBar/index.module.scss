@@ -1,0 +1,11 @@
+.Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  .SearchBar {
+    width: 500px;
+    border: 1px solid #434343;
+    border-radius: 5px;
+  }
+}

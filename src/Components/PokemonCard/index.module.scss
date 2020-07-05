@@ -1,0 +1,23 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.Cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 4px;
+}
+
+.Card {
+  transition: transform 0.2s;
+  width: 240;
+  margin: 10px;
+}
+
+.Card:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}

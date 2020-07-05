@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./Container/Home";
-import Pokemon from "./Container/Pokemon";
+import Home from "./Container/Home/index";
+import Pokemon from "./Container/Pokemon/index";
 
 import "./Styles/app.css";
 
