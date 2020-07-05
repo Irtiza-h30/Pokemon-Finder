@@ -5,8 +5,8 @@ import styles from "./index.module.scss";
 
 const { Search } = Input;
 
-const SearchBar = ({ fetchPokemon }) => {
-  const [value, setValue] = useState("");
+const SearchBar = ({ fetchPokemon, search }) => {
+  const [value, setValue] = useState(search);
 
   return (
     <div>
@@ -14,6 +14,7 @@ const SearchBar = ({ fetchPokemon }) => {
         <Search
           className={styles.SearchBar}
           placeholder="Pokémon name:"
+          defaultValue={search}
           enterButton="Search"
           size="large"
           onChange={(e) => setValue(e.target.value)}
