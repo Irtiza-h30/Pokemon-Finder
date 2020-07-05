@@ -10,7 +10,7 @@ const Home = ({ location }) => {
   const history = useHistory();
 
   const [returnedCards, setReturnedCards] = useState([]);
-  const [search, setSearch] = useState(location.state.search);
+  const [search, setSearch] = useState(location ? location.state.search : "");
 
   useEffect(() => {
     fetchPokemon(search);
