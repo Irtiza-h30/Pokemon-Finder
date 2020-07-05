@@ -37,6 +37,7 @@ const Pokemon = ({ location }) => {
         <Card
           className={styles.cardInfo}
           title={location.state.card.card.name}
+          headStyle={{ backgroundColor: "rgb(252, 239, 202)", border: 10 }}
           bodyStyle={{ backgroundColor: "rgb(254, 225, 175)", border: 10 }}
           bordered={false}
         >
