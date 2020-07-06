@@ -14,6 +14,7 @@ const Pokemon = ({ location }) => {
       pathname: "/",
     });
   };
+
   return (
     <>
       <Header />
@@ -42,14 +43,26 @@ const Pokemon = ({ location }) => {
           bordered={false}
         >
           <div>
-            <label>Pokedex Number: </label>
-            {location.state.card.card.nationalPokedexNumber}
-            <br />
-            <label> Type: </label> {location.state.card.card.types}
-            <br />
-            <label> Evolves from: </label>
-            {location.state.card.card.evolvesFrom}
-            <br />
+            {location.state.card.card.nationalPokedexNumber && (
+              <>
+                <label>Pokedex Number: </label>
+                {location.state.card.card.nationalPokedexNumber}
+                <br />
+              </>
+            )}
+            {location.state.card.card.types && (
+              <>
+                <label> Type: </label> {location.state.card.card.types}
+                <br />
+              </>
+            )}
+            {location.state.card.card.evolvesFrom && (
+              <>
+                <label> Evolves from: </label>
+                {location.state.card.card.evolvesFrom}
+                <br />
+              </>
+            )}
             <label> Series: </label>
             {location.state.card.card.series}
             <br />
