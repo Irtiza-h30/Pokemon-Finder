@@ -1,14 +1,9 @@
 # Pokedex-TCG
 https://pokemontcgfinder.netlify.app/
 
-React app that is a Pokédex for the TCG using the Pokémon TCG API (https://pokemontcg.io/) 
+React app that is a Pokédex finder using the Pokémon TCG API (https://pokemontcg.io/) 
 
 Built using React JS
-
-## Set up environment:
-		
-	Install Dependencies 
-		`npm install`
 
 ## Run:
   ### Development
