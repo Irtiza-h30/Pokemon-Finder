@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LeftOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import Header from "../../Components/Header/index";
@@ -9,11 +9,23 @@ import styles from "./index.module.scss";
 const Pokemon = ({ location }) => {
   const history = useHistory();
 
+  const [card, setCard] = useState("");
+
   const goBack = () => {
     history.push({
       pathname: "/",
     });
   };
+
+  useEffect(() => {
+    if (location.state.card.card) {
+      localStorage.setItem("card", JSON.stringify(location.state.card.card));
+      setCard(location.state.card.card);
+    } else {
+      setCard(localStorage.getItem("card"));
+      if (card) setCard(JSON.parse(card));
+    }
+  }, [location.state.card.card, card]);
 
   return (
     <>
@@ -30,51 +42,51 @@ const Pokemon = ({ location }) => {
       </div>
 
       <div className={styles.Container}>
-        <img
-          className={styles.Card}
-          alt="example"
-          src={location.state.card.card.imageUrlHiRes}
-        />
+        <img className={styles.Card} alt="example" src={card.imageUrlHiRes} />
         <Card
           className={styles.cardInfo}
-          title={location.state.card.card.name}
+          title={card.name}
           headStyle={{ backgroundColor: "rgb(252, 239, 202)", border: 10 }}
           bodyStyle={{ backgroundColor: "rgb(254, 225, 175)", border: 10 }}
           bordered={false}
         >
           <div>
-            {location.state.card.card.nationalPokedexNumber && (
+            {card.nationalPokedexNumber && (
               <>
                 <label>Pokedex Number: </label>
-                {location.state.card.card.nationalPokedexNumber}
+                {card.nationalPokedexNumber}
                 <br />
               </>
             )}
-            {location.state.card.card.types && (
+            {card.types && (
               <>
-                <label> Type: </label> {location.state.card.card.types}
+                <label> Type: </label> {card.types}
                 <br />
               </>
             )}
-            {location.state.card.card.evolvesFrom && (
+            {card.evolvesFrom && (
               <>
                 <label> Evolves from: </label>
-                {location.state.card.card.evolvesFrom}
+                {card.evolvesFrom}
                 <br />
               </>
             )}
             <label> Series: </label>
-            {location.state.card.card.series}
+            {card.series}
             <br />
             <label> Subtype: </label>
-            {location.state.card.card.subtype}
+            {card.subtype}
             <br />
             <label> Set: </label>
-            {location.state.card.card.set}
+            {card.set}
             <br />
-            <label> Rarity : </label> {location.state.card.card.rarity}
+            <label> Rarity : </label> {card.rarity}
             <br />
-            <label> Artist : </label> {location.state.card.card.artist}
+            {card.artist && (
+              <>
+                <label> Artist : </label> {card.artist}
+              </>
+            )}
           </div>
         </Card>
       </div>

@@ -6,7 +6,7 @@ import image from "./background.png";
 const Header = () => {
   return (
     <div className={styles.Header}>
-      <PageHeader title="Pokémon Card Finder">
+      <PageHeader title="Pokédex Card Finder">
         <img className={styles.Image} alt="example" src={image} />
       </PageHeader>
     </div>

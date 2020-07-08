@@ -13,7 +13,7 @@ const PokemonCard = ({ returnedCards, handleOpen }) => {
               hoverable
               style={{ width: 240 }}
               cover={<img alt="example" src={card.imageUrlHiRes} />}
-              bodyStyle={{ backgroundColor: "rgb(254, 225, 175)", border: 10 }}
+              bodyStyle={{ backgroundColor: "rgb(254, 225, 175)" }}
               onClick={() => handleOpen({ card })}
             >
               <Meta title={card.name} description={card.series} />
