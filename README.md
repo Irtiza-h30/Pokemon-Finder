@@ -1,5 +1,5 @@
 # Pokedex-TCG
-https://pokemontcgfinder.netlify.app/
+https://pokedexfinder.netlify.app/
 
 React app that is a Pokédex finder using the Pokémon TCG API (https://pokemontcg.io/) 
 
