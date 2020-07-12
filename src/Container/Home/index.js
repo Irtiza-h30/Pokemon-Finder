@@ -27,7 +27,7 @@ const Home = () => {
 
   const handleOpen = (card) => {
     history.push({
-      pathname: "/pokemon",
+      pathname: "/Pokemon",
       state: { card },
     });
   };

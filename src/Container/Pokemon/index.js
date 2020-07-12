@@ -1,44 +1,46 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { LeftOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
 import Header from "../../Components/Header/index";
 import { Card, Button } from "antd";
 
 import styles from "./index.module.scss";
 
 const Pokemon = ({ location }) => {
-  const history = useHistory();
+  const [card, setCard] = useState(
+    JSON.parse(localStorage.getItem("card")) || []
+  );
 
-  const [card, setCard] = useState("");
-
-  const goBack = () => {
-    history.push({
-      pathname: "/",
-    });
-  };
+  const status =
+    (location &&
+      location.state &&
+      location.state.card &&
+      location.state.card.card) ||
+    {};
 
   useEffect(() => {
-    if (location.state.card.card) {
-      localStorage.setItem("card", JSON.stringify(location.state.card.card));
-      setCard(location.state.card.card);
+    if (status) {
+      localStorage.setItem("cards", JSON.stringify(card));
+      setCard(status);
     } else {
       setCard(localStorage.getItem("card"));
       if (card) setCard(JSON.parse(card));
     }
-  }, [location.state.card.card, card]);
+  }, [status, card]);
 
   return (
     <>
       <Header />
       <div className={styles.backButton}>
-        <Button
-          className={styles.Button}
-          onClick={goBack}
-          type="dashed"
-          icon={<LeftOutlined />}
-        >
-          Back to Search
-        </Button>
+        <Link to="/">
+          <Button
+            className={styles.Button}
+            type="dashed"
+            icon={<LeftOutlined />}
+          >
+            Back to Search
+          </Button>
+        </Link>
       </div>
 
       <div className={styles.Container}>
