@@ -11,20 +11,14 @@ const Pokemon = ({ location }) => {
     JSON.parse(localStorage.getItem("card")) || []
   );
 
-  const status =
-    (location &&
-      location.state &&
-      location.state.card &&
-      location.state.card.card) ||
-    {};
+  const status = location?.state?.card?.card || {};
 
   useEffect(() => {
     if (status) {
-      localStorage.setItem("cards", JSON.stringify(card));
+      localStorage.setItem("card", JSON.stringify(card));
       setCard(status);
     } else {
-      setCard(localStorage.getItem("card"));
-      if (card) setCard(JSON.parse(card));
+      setCard(JSON.parse(localStorage.getItem("card")));
     }
   }, [status, card]);
 
