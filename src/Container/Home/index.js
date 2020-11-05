@@ -37,7 +37,6 @@ const Home = () => {
       <Header />
       <SearchBar
         fetchPokemon={fetchPokemon}
-        returnedCards={returnedCards}
         search={search}
       />
       {returnedCards.length > 0 ? (
